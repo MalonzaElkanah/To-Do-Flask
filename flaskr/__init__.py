@@ -35,15 +35,10 @@ def create_app(test_config=None):
     app.register_blueprint(auth.bp)
 
 
-    # Register blog view blueprint
-    from . import blog
-    app.register_blueprint(blog.bp)
+    # Register todo view blueprint
+    from . import todo
+    app.register_blueprint(todo.bp)
     app.add_url_rule('/', endpoint='index')
 
-
-    # a simple page that says hello
-    @app.route('/hello')
-    def hello():
-        return 'Hello, World!'
 
     return app
