@@ -1,15 +1,37 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h1>{% block title %}New Post{% endblock %}</h1>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('todo.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{% block title %}New List{% endblock %}</li>
+        </ol>
+    </nav>
 {% endblock %}
 
 {% block content %}
-    <form method="post">
-        <label for="title">Title</label>
-        <input name="title" id="title" value="{{ request.form['title'] }}" required>
-        <label for="body">Body</label>
-        <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-        <input type="submit" value="Save">
-    </form>
+    <div class="row p-4">
+        <div class="col-12 text-center h4 pb-2">Create List</div>
+        <form method="post">
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">List Name</label>
+                <div class="col-sm-12 col-md-7">
+                    <input type="text" class="form-control" name="name" value="" required="">
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Description</label>
+                <div class="col-sm-12 col-md-7">
+                    <textarea class="form-control" name="description" rows="5" placeholder="List Description"> </textarea>
+                </div>
+            </div>
+            <div class="form-group row mb-4">
+                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                <div class="col-sm-12 col-md-7"> 
+                    <button type="submit" class="btn btn-primary">SUBMIT</button>
+                </div>
+            </div>
+        
+        </form>
+    </div>
 {% endblock %}

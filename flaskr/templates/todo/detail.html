@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('todo.index') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{% block title %}{{ todo['name'] }}{% endblock %}</li>
+        </ol>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="row p-3">
+        <div class="col-12">
+            <ul class="list-group">
+            {% for list in lists %}
+                {% if list['status'] == 'NOT_DONE'  %}    
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ list['name'] }}
+                    <span>
+                        <a href="#" class="btn btn-danger trash btn-action mr-1 delete-btn" data-toggle="tooltip" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
+                        <a href="#" class="btn btn-success btn-action check-btn" data-toggle="tooltip" title="Check" data-original-title="Check"><i class="fas fa-check"></i></a>
+                    </span>
+                </li>
+                {% endif %}
+            {% endfor %}
+            {% for list in lists %}
+                {% if list.status == 'COMPLETE'  %}    
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{list.name}}
+                    <span><i class="fas fa-check col-green"></i></span>
+                </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% if todo.status != 'ARCHIVE' %}
+        <div class="col-12 pt-3">
+            <form class="addListForm" method="POST">   
+                <ul class="list-group new-list-group"> </ul>
+                <div class="add-more py-3">
+                    <a href="javascript:void(0);" class="add-list"><i class="fa fa-plus-circle"></i> Add List Item</a>
+                </div>
+                <input id="item-num" type="hidden" name="list_num" value="0">
+
+                <button id="add-list-btn" type="submit" class="btn btn-primary m-t-15 waves-effect" style="display: none;">Update List</button>
+            </form>
+        </div>
+        {% endif %}
+        <div class="col-12 pt-5">
+            {% if todo.status == 'COMPLETE'%}
+            <a type="button" class="btn btn-secondary" href="#" title="archive">Archive List</a>
+            {% endif %}
+            <a class="btn btn-danger" href="#" title="delete">Delete List</a>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='list.js') }}"></script>
+{% endblock %}
