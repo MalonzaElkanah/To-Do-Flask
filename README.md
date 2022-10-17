@@ -1,6 +1,6 @@
 # to-do App
 
-## Operations
+## Features
 - create a todo list
 - update a todo list
 - view todo lists
@@ -11,11 +11,19 @@
 - delete items from a todo list
 - check items from a todo list
 
-## Requirements
-- python 3.8
-- flask 1.0
-- sqlite 
-- 
+## How to run the app
+
+### first time
+1. Create a virtual environment and activate it:
+	python3 -m venv venv
+	source venv/bin/activate
+
+2. Install the project dependacies from requirements.txt by running the following command in shell: 
+	pip install -r requirements.txt 
+
+3. Set-up the database by running:
+	export FLASK_APP=flaskr 
+	flask init-db
 
 ## Run following Commands in shell to run the app.
 export FLASK_APP=flaskr
