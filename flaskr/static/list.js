@@ -22,7 +22,7 @@ Version      : 1.0
 				'<a href="#" class="btn btn-danger trash"><i class="far fa-trash-alt"></i>Remove</a>' +
 			'</div>' +
 		'</li>';
-		
+
         $(".new-list-group").append(editcontent);
         $("#add-list-btn").show();
         return false;
@@ -34,5 +34,5 @@ Version      : 1.0
 		return false;
     });
 
-	
+
 })(jQuery);

@@ -17,7 +17,7 @@
                 {% if list['status'] == 'NOT_DONE' %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     {{ list['name'] }}
-                    <span>                    
+                    <span>
                         <a href="{{ url_for('todo.delete_list', id=todo['id'], list_id=list['id']) }}" class="btn btn-danger trash btn-action mr-1 delete-btn" data-toggle="tooltip" title="Delete" data-original-title="Delete"><i class="far fa-trash-alt"></i></a>
                         <a href="{{ url_for('todo.check_list', id=todo['id'], list_id=list['id']) }}" class="btn btn-success btn-action check-btn" data-toggle="tooltip" title="Check" data-original-title="Check"><i class="fas fa-check"></i></a>
                     </span>
@@ -25,18 +25,18 @@
                 {% elif list['status'] == 'COMPLETE'  %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <del>{{ list['name'] }}</del>
-                    <span>   
+                    <span>
                         <!--i class="fas fa-check fa-1x col-green"></i-->
                         <p class="h6"><span class="badge rounded-pill bg-success">Checked</span></p>
                     </span>
-                </li>                    
+                </li>
                 {% endif %}
             {% endfor %}
             </ul>
         </div>
         {% if todo.status != 'ARCHIVE' %}
         <div class="col-12 pt-3">
-            <form class="addListForm" method="POST">   
+            <form class="addListForm" method="POST">
                 <ul class="list-group new-list-group"> </ul>
                 <div class="add-more py-3">
                     <a href="javascript:void(0);" class="add-list"><i class="fa fa-plus-circle"></i> Add List Item</a>

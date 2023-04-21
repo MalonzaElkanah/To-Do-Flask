@@ -9,9 +9,9 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ url_for('todo.index') }}">Home</a></li>
-            
+
                 <li class="breadcrumb-item active" aria-current="page">Archives</li>
-            
+
         </ol>
     </nav>
     {% endif %}
@@ -23,7 +23,7 @@
         <div class="col-sm-12 col-md-6">
             <div class="card">
                 <a class="action text-decoration-none" href="{{ url_for('todo.detail', id=todo['id']) }}">
-                <div class="card-body"> 
+                <div class="card-body">
                     <h3 class="card-title py-2">{{ todo['name'] }}</h3>
                     <div class="progress mb-3"  style="height: 10px">
                         <div class="progress-bar bg-primary" style="width: {{todo['complete']}}%;" role="progressbar" aria-valuenow="{{todo['complete']}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -42,24 +42,24 @@
     <div class="row pt-4 pb-4">
         <div class="col-sm-12 col-md-6">
             <div class="card border-primary" style="border-style: dashed;">
-                <a class="text-decoration-none" href="{{ url_for('todo.create') }}"> 
+                <a class="text-decoration-none" href="{{ url_for('todo.create') }}">
                     <div class="card-body text-center">
                         <h5 class="card-title"><i class="fas fa-plus"></i> Add Todo List</h5>
                     </div>
                 </a>
-            </div>            
+            </div>
         </div>
 
         <div class="col-6">
             <div class="card border-primary" style="border-style: dashed;">
             {% if status == "ARCHIVE" %}
-                <a class="text-decoration-none" href="{{ url_for('todo.index') }}"> 
+                <a class="text-decoration-none" href="{{ url_for('todo.index') }}">
                     <div class="card-body text-center">
                         <h5 class="card-title"> <i class=" fas fa-list"></i> Active Lists</h5>
                     </div>
                 </a>
             {% else %}
-                <a class="text-decoration-none" href="{{ url_for('todo.archives') }}"> 
+                <a class="text-decoration-none" href="{{ url_for('todo.archives') }}">
                     <div class="card-body text-center">
                         <h5 class="card-title"> <i class=" fas fa-archive"></i> Archived Lists</h5>
                     </div>
