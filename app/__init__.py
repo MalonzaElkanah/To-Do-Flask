@@ -41,6 +41,10 @@ def create_app(test_config=None):
     from . import todo
 
     app.register_blueprint(todo.bp)
+
+    from app.api.urls import api_urls
+
     app.add_url_rule("/", endpoint="index")
+    api_urls(app)
 
     return app

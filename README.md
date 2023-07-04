@@ -22,10 +22,9 @@
 	pip install -r requirements.txt
 
 3. Set-up the database by running:
-	export FLASK_APP=flaskr
+	export FLASK_APP=app
 	flask init-db
 
 ## Run following Commands in shell to run the app.
-export FLASK_APP=flaskr
 export FLASK_ENV=development
 flask run
